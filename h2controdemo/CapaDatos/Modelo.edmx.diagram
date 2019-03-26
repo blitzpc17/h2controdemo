@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc32cbf7093c4410aa6c1d416b144d9a" Name="Diagram1" >
+        <EntityTypeShape EntityType="dbh2controlModel.ENCARGADOS" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="dbh2controlModel.ROLES" Width="1.5" PointX="6.875" PointY="2.125" />
+        <AssociationConnector Association="dbh2controlModel.ENCARGADOSROLES" />
+        <EntityTypeShape EntityType="dbh2controlModel.USUARIOS" Width="1.5" PointX="3.5" PointY="5.375" />
+        <EntityTypeShape EntityType="dbh2controlModel.PAGOS" Width="1.5" PointX="6.125" PointY="5.125" />
+        <AssociationConnector Association="dbh2controlModel.USUARIOSPAGOS" />
+        <AssociationConnector Association="dbh2controlModel.PAGOSENCARGADOS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbh2controlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbh2controlModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbh2controlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbh2controlEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="ENCARGADOSSet" EntityType="dbh2controlModel.ENCARGADOS" />
+          <EntitySet Name="ROLESSet" EntityType="dbh2controlModel.ROLES" />
+          <AssociationSet Name="ENCARGADOSROLES" Association="dbh2controlModel.ENCARGADOSROLES">
+            <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+            <End Role="ROLES" EntitySet="ROLESSet" />
+          </AssociationSet>
+          <EntitySet Name="USUARIOS" EntityType="dbh2controlModel.USUARIOS" />
+          <EntitySet Name="PAGOS" EntityType="dbh2controlModel.PAGOS" />
+          <AssociationSet Name="USUARIOSPAGOS" Association="dbh2controlModel.USUARIOSPAGOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="PAGOS" EntitySet="PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="PAGOSENCARGADOS" Association="dbh2controlModel.PAGOSENCARGADOS">
+            <End Role="PAGOS" EntitySet="PAGOS" />
+            <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ENCARGADOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRES" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="APATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="AMATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="USUARIO" Type="String" Nullable="false" FixedLength="true" MaxLength="3" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" FixedLength="true" MaxLength="8" />
+          <Property Name="FECHAALTA" Type="DateTime" Nullable="false" />
+          <Property Name="FECHAMODIFICACION" Type="DateTime" Nullable="false" />
+          <Property Name="ROLESId" Type="Int32" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" FixedLength="false" MaxLength="125" Nullable="true" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="35" FixedLength="false" />
+        </EntityType>
+        <Association Name="ENCARGADOSROLES">
+          <End Type="dbh2controlModel.ENCARGADOS" Role="ENCARGADOS" Multiplicity="*" />
+          <End Type="dbh2controlModel.ROLES" Role="ROLES" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ENCARGADOS">
+              <PropertyRef Name="ROLESId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRES" Type="String" Nullable="false" MaxLength="35" FixedLength="false" />
+          <Property Name="APATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="AMATERNO" Type="String" Nullable="false" MaxLength="35" FixedLength="false" />
+          <Property Name="DOMICILIO" Type="String" Nullable="false" FixedLength="false" MaxLength="125" />
+          <Property Name="TELEFONO" Type="String" Nullable="false" FixedLength="true" MaxLength="10" />
+          <Property Name="EMAIL" Type="String" FixedLength="false" MaxLength="75" Nullable="true" />
+          <Property Name="NOTOMAS" Type="Int32" Nullable="false" />
+          <Property Name="FECHAALTA" Type="DateTime" Nullable="false" />
+          <Property Name="FECHAMODIFICACION" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+          <Property Name="FOLIO" Type="String" Nullable="false" FixedLength="true" MaxLength="13" />
+          <Property Name="TARIFA" Type="Decimal" Nullable="false" Scale="2" Precision="10" />
+          <Property Name="FECHAPAGO" Type="DateTime" Nullable="false" />
+          <Property Name="IMPORTE" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="USUARIOSId" Type="Int32" Nullable="false" />
+          <Property Name="ENCARGADOSId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="USUARIOSPAGOS">
+          <End Type="dbh2controlModel.USUARIOS" Role="USUARIOS" Multiplicity="1" />
+          <End Type="dbh2controlModel.PAGOS" Role="PAGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PAGOS">
+              <PropertyRef Name="USUARIOSId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGOSENCARGADOS">
+          <End Type="dbh2controlModel.PAGOS" Role="PAGOS" Multiplicity="*" />
+          <End Type="dbh2controlModel.ENCARGADOS" Role="ENCARGADOS" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ENCARGADOS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PAGOS">
+              <PropertyRef Name="ENCARGADOSId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbh2controlModelStoreContainer" CdmEntityContainer="dbh2controlEntities" />
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
