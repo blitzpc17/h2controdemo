@@ -16,5 +16,11 @@ namespace h2controdemo.PAGOS
         {
             InitializeComponent();
         }
+
+        private void formPagos_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

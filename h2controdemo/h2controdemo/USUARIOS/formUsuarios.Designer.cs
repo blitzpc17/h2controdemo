@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFolio = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ObligatoriotxtCorreo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -45,11 +50,6 @@
             this.btnBusEncargado = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -65,13 +65,48 @@
             this.panel1.Size = new System.Drawing.Size(789, 40);
             this.panel1.TabIndex = 36;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelar.Image = global::h2controdemo.Properties.Resources.cancelarSmartInventarios2018x24;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(667, 5);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(110, 30);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "   Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGuardar.Image = global::h2controdemo.Properties.Resources.guardarSmarInventarios2018x24;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(546, 5);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(110, 30);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "   Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtFolio);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.ObligatoriotxtCorreo);
             this.groupBox2.Controls.Add(this.label10);
@@ -91,6 +126,33 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del usuario";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(10, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 23);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "Folio:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtFolio
+            // 
+            this.txtFolio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFolio.Location = new System.Drawing.Point(131, 32);
+            this.txtFolio.Name = "txtFolio";
+            this.txtFolio.ReadOnly = true;
+            this.txtFolio.Size = new System.Drawing.Size(225, 21);
+            this.txtFolio.TabIndex = 115;
+            this.txtFolio.Text = "NUEVO USUARIO";
+            this.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(516, 59);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(225, 21);
+            this.textBox1.TabIndex = 111;
             // 
             // ObligatoriotxtCorreo
             // 
@@ -137,7 +199,7 @@
             // ObligatoriotxtDireccion
             // 
             this.ObligatoriotxtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ObligatoriotxtDireccion.Location = new System.Drawing.Point(131, 115);
+            this.ObligatoriotxtDireccion.Location = new System.Drawing.Point(131, 113);
             this.ObligatoriotxtDireccion.Multiline = true;
             this.ObligatoriotxtDireccion.Name = "ObligatoriotxtDireccion";
             this.ObligatoriotxtDireccion.Size = new System.Drawing.Size(225, 60);
@@ -145,7 +207,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(10, 115);
+            this.label4.Location = new System.Drawing.Point(10, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 23);
             this.label4.TabIndex = 6;
@@ -155,23 +217,23 @@
             // ObligatoriotxtApellidos
             // 
             this.ObligatoriotxtApellidos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ObligatoriotxtApellidos.Location = new System.Drawing.Point(131, 59);
+            this.ObligatoriotxtApellidos.Location = new System.Drawing.Point(131, 86);
             this.ObligatoriotxtApellidos.Name = "ObligatoriotxtApellidos";
             this.ObligatoriotxtApellidos.Size = new System.Drawing.Size(225, 21);
             this.ObligatoriotxtApellidos.TabIndex = 20;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(10, 59);
+            this.label3.Location = new System.Drawing.Point(10, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 23);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Ap. Paterno:";
+            this.label3.Text = "Apellidos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(10, 30);
+            this.label2.Location = new System.Drawing.Point(10, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 23);
             this.label2.TabIndex = 1;
@@ -181,7 +243,7 @@
             // ObligatoriotxtNombres
             // 
             this.ObligatoriotxtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ObligatoriotxtNombres.Location = new System.Drawing.Point(131, 30);
+            this.ObligatoriotxtNombres.Location = new System.Drawing.Point(131, 57);
             this.ObligatoriotxtNombres.Name = "ObligatoriotxtNombres";
             this.ObligatoriotxtNombres.Size = new System.Drawing.Size(225, 21);
             this.ObligatoriotxtNombres.TabIndex = 10;
@@ -226,64 +288,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(195, 21);
             this.txtBuscar.TabIndex = 10;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Image = global::h2controdemo.Properties.Resources.cancelarSmartInventarios2018x24;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(667, 5);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(110, 30);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "   Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardar.Image = global::h2controdemo.Properties.Resources.guardarSmarInventarios2018x24;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(546, 5);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(110, 30);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "   Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(516, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 21);
-            this.textBox1.TabIndex = 111;
-            // 
-            // textBox2
-            // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(131, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 21);
-            this.textBox2.TabIndex = 113;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(10, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 23);
-            this.label6.TabIndex = 112;
-            this.label6.Text = "Ap. Materno:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // formUsuarios
             // 
@@ -330,7 +334,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtFolio;
     }
 }

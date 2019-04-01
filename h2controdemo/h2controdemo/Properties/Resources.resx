@@ -118,17 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cancelarSmartInventarios2018x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancelarSmartInventarios2018x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondo 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit-door-symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit-door-symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FONDOh2control" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDOh2control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="guardar-archivo-opcion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guardar-archivo-opcion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="guardarSmarInventarios2018x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardarSmarInventarios2018x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lupa-de-busqueda (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lupa-de-busqueda (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit-door-symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit-door-symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo2h2control" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo2h2control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cargado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cargado.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuarios (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuarios (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,7 +154,13 @@
   <data name="iniciar-sesion32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iniciar-sesion32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="guardarSmarInventarios2018x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guardarSmarInventarios2018x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelarSmartInventarios2018x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelarSmartInventarios2018x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seleccionar24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Seleccionar24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOGO - H2CONTROL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGO - H2CONTROL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADOS\PAGO\ADOPagos.cs" />
+    <Compile Include="ADOS\SISTEMA\ADOEncargados.cs" />
+    <Compile Include="ADOS\SISTEMA\ADOGlobal.cs" />
+    <Compile Include="ADOS\SISTEMA\ADORoles.cs" />
+    <Compile Include="ADOS\USUARIO\ADOUsuarios.cs" />
     <Compile Include="ENCARGADOS.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -99,6 +104,7 @@
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
+    <Content Include="Modelo.edmx.sql" />
     <Content Include="Modelo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -108,11 +114,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ADOS\PAGOS\" />
-    <Folder Include="ADOS\SISTEMA\" />
-    <Folder Include="ADOS\USUARIOS\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
       <Project>{3017fc6f-9b60-404f-be1a-71ec9b2feea9}</Project>

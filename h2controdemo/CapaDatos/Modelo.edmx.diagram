@@ -12,7 +12,8 @@
         <EntityTypeShape EntityType="dbh2controlModel.PAGOS" Width="1.5" PointX="6.125" PointY="5.125" />
         <AssociationConnector Association="dbh2controlModel.USUARIOSPAGOS" />
         <AssociationConnector Association="dbh2controlModel.PAGOSENCARGADOS" />
-      </Diagram>
+        <AssociationConnector Association="dbh2controlModel.ENCARGADOSUSUARIOS" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

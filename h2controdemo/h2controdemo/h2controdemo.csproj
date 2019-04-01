@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +57,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUSQUEDAS\busEncargados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BUSQUEDAS\busEncargados.Designer.cs">
+      <DependentUpon>busEncargados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BUSQUEDAS\busUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BUSQUEDAS\busUsuarios.Designer.cs">
+      <DependentUpon>busUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enumeraciones.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="LOGICAS\SISTEMA\formEncargadosLogica.cs" />
+    <Compile Include="LOGICAS\SISTEMA\formLoginLogica.cs" />
+    <Compile Include="LOGICAS\USUARIOS\formUsuariosLogica.cs" />
+    <Compile Include="PAGOS\formHistorialPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGOS\formHistorialPago.Designer.cs">
+      <DependentUpon>formHistorialPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAGOS\formPagos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,12 +100,27 @@
     <Compile Include="SISTEMA\formEncargados.Designer.cs">
       <DependentUpon>formEncargados.cs</DependentUpon>
     </Compile>
+    <Compile Include="SISTEMA\MDIPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTEMA\MDIPanel.Designer.cs">
+      <DependentUpon>MDIPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="USUARIOS\formUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="USUARIOS\formUsuarios.Designer.cs">
       <DependentUpon>formUsuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BUSQUEDAS\busEncargados.resx">
+      <DependentUpon>busEncargados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BUSQUEDAS\busUsuarios.resx">
+      <DependentUpon>busUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGOS\formHistorialPago.resx">
+      <DependentUpon>formHistorialPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAGOS\formPagos.resx">
       <DependentUpon>formPagos.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,9 +140,13 @@
     <EmbeddedResource Include="SISTEMA\formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SISTEMA\MDIPanel.resx">
+      <DependentUpon>MDIPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="USUARIOS\formUsuarios.resx">
       <DependentUpon>formUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +161,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{9140c427-9a17-45e3-8eaf-34c72906ea3f}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
       <Project>{89b24720-882f-46b4-873c-2bda1bd3e57b}</Project>
       <Name>CapaLogica</Name>
@@ -122,7 +179,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LOGICAS\" />
+    <None Include="Resources\fondo 2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuarios %282%29.png" />
@@ -147,6 +204,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\guardarSmarInventarios2018x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa-de-busqueda %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seleccionar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cargado.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDOh2control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo2h2control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO - H2CONTROL.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

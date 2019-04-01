@@ -15,14 +15,15 @@ namespace CapaDatos
     public partial class USUARIOS
     {
         public int Id { get; set; }
+        public string FOLIO { get; set; }
         public string NOMBRES { get; set; }
-        public string APATERNO { get; set; }
-        public string AMATERNO { get; set; }
+        public string APELLIDOS { get; set; }
         public string DOMICILIO { get; set; }
         public string TELEFONO { get; set; }
         public string EMAIL { get; set; }
         public int NOTOMAS { get; set; }
         public System.DateTime FECHAALTA { get; set; }
         public System.DateTime FECHAMODIFICACION { get; set; }
+        public int ENCARGADOSId { get; set; }
     }
 }

@@ -21,5 +21,7 @@ namespace CapaDatos
         public decimal IMPORTE { get; set; }
         public int USUARIOSId { get; set; }
         public int ENCARGADOSId { get; set; }
+        public string PERIODO { get; set; }
+        public bool RETARDO { get; set; }
     }
 }

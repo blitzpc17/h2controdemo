@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICRUD.cs" />
+    <Compile Include="LOGICAS\SISTEMA\EncargadosLogica.cs" />
+    <Compile Include="LOGICAS\SISTEMA\GlobalLogica.cs" />
+    <Compile Include="LOGICAS\SISTEMA\RolesLogica.cs" />
+    <Compile Include="LOGICAS\USUARIO\UsuariosLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +59,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LOGICAS\PAGOS\" />
-    <Folder Include="LOGICAS\SISTEMA\" />
-    <Folder Include="LOGICAS\USUARIOS\" />
+    <Folder Include="LOGICAS\PAGO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

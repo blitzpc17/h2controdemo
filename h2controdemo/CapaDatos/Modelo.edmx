@@ -4,19 +4,140 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbh2controlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="dbh2controlModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="dbh2controlModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dbh2controlModelStoreContainer">
+    <EntitySet Name="ENCARGADOSSet" EntityType="dbh2controlModel.Store.ENCARGADOSSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ROLESSet" EntityType="dbh2controlModel.Store.ROLESSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="USUARIOS" EntityType="dbh2controlModel.Store.USUARIOS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PAGOS" EntityType="dbh2controlModel.Store.PAGOS" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ENCARGADOSROLES" Association="dbh2controlModel.Store.ENCARGADOSROLES">
+      <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+      <End Role="ROLES" EntitySet="ROLESSet" />
+    </AssociationSet>
+    <AssociationSet Name="USUARIOSPAGOS" Association="dbh2controlModel.Store.USUARIOSPAGOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="PAGOSENCARGADOS" Association="dbh2controlModel.Store.PAGOSENCARGADOS">
+      <End Role="PAGOS" EntitySet="PAGOS" />
+      <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+    </AssociationSet>
+    <AssociationSet Name="ENCARGADOSUSUARIOS" Association="dbh2controlModel.Store.ENCARGADOSUSUARIOS">
+      <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ENCARGADOSSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRES" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="APELLIDOS" Type="nvarchar" Nullable="false" MaxLength="70" />
+    <Property Name="USUARIO" Type="nchar" Nullable="false" MaxLength="3" />
+    <Property Name="PASSWORD" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="FECHAALTA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAMODIFICACION" Type="datetime" Nullable="false" />
+    <Property Name="ROLESId" Type="int" Nullable="false" />
+    <Property Name="DIRECCION" Type="nvarchar" Nullable="true" MaxLength="125" />
+    <Property Name="TELEFONO" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="CORREO" Type="nvarchar" Nullable="false" MaxLength="125" />
+  </EntityType>
+  <EntityType Name="ROLESSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FOLIO" Type="nchar" Nullable="false" MaxLength="9" />
+    <Property Name="NOMBRES" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="APELLIDOS" Type="nvarchar" Nullable="false" MaxLength="70" />
+    <Property Name="DOMICILIO" Type="nvarchar" Nullable="false" MaxLength="125" />
+    <Property Name="TELEFONO" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="EMAIL" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="NOTOMAS" Type="int" Nullable="false" />
+    <Property Name="FECHAALTA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAMODIFICACION" Type="datetime" Nullable="false" />
+    <Property Name="ENCARGADOSId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FOLIO" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="TARIFA" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IMPORTE" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="USUARIOSId" Type="int" Nullable="false" />
+    <Property Name="ENCARGADOSId" Type="int" Nullable="false" />
+    <Property Name="PERIODO" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="RETARDO" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="ENCARGADOSROLES">
+    <End Role="ENCARGADOS" Type="dbh2controlModel.Store.ENCARGADOSSet" Multiplicity="*" />
+    <End Role="ROLES" Type="dbh2controlModel.Store.ROLESSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ROLES">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ENCARGADOS">
+        <PropertyRef Name="ROLESId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USUARIOSPAGOS">
+    <End Role="USUARIOS" Type="dbh2controlModel.Store.USUARIOS" Multiplicity="1" />
+    <End Role="PAGOS" Type="dbh2controlModel.Store.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="USUARIOSId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGOSENCARGADOS">
+    <End Role="PAGOS" Type="dbh2controlModel.Store.PAGOS" Multiplicity="*" />
+    <End Role="ENCARGADOS" Type="dbh2controlModel.Store.ENCARGADOSSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ENCARGADOS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="ENCARGADOSId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ENCARGADOSUSUARIOS">
+    <End Role="ENCARGADOS" Type="dbh2controlModel.Store.ENCARGADOSSet" Multiplicity="1" />
+    <End Role="USUARIOS" Type="dbh2controlModel.Store.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENCARGADOS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="ENCARGADOSId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbh2controlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="dbh2controlEntities" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="ENCARGADOSSet" EntityType="dbh2controlModel.ENCARGADOS" />
-          <EntitySet Name="ROLESSet" EntityType="dbh2controlModel.ROLES" />
+          <EntitySet Name="ENCARGADOS" EntityType="dbh2controlModel.ENCARGADOS" />
+          <EntitySet Name="ROLES" EntityType="dbh2controlModel.ROLES" />
           <AssociationSet Name="ENCARGADOSROLES" Association="dbh2controlModel.ENCARGADOSROLES">
-            <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
-            <End Role="ROLES" EntitySet="ROLESSet" />
+            <End Role="ENCARGADOS" EntitySet="ENCARGADOS" />
+            <End Role="ROLES" EntitySet="ROLES" />
           </AssociationSet>
           <EntitySet Name="USUARIOS" EntityType="dbh2controlModel.USUARIOS" />
           <EntitySet Name="PAGOS" EntityType="dbh2controlModel.PAGOS" />
@@ -26,23 +147,28 @@
           </AssociationSet>
           <AssociationSet Name="PAGOSENCARGADOS" Association="dbh2controlModel.PAGOSENCARGADOS">
             <End Role="PAGOS" EntitySet="PAGOS" />
-            <End Role="ENCARGADOS" EntitySet="ENCARGADOSSet" />
+            <End Role="ENCARGADOS" EntitySet="ENCARGADOS" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="ENCARGADOSUSUARIOS" Association="dbh2controlModel.ENCARGADOSUSUARIOS">
+            <End Role="ENCARGADOS" EntitySet="ENCARGADOS" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="ENCARGADOS">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRES" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
-          <Property Name="APATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
-          <Property Name="AMATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="APELLIDOS" Type="String" Nullable="false" FixedLength="false" MaxLength="70" />
           <Property Name="USUARIO" Type="String" Nullable="false" FixedLength="true" MaxLength="3" />
-          <Property Name="PASSWORD" Type="String" Nullable="false" FixedLength="true" MaxLength="8" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" FixedLength="false" MaxLength="8" />
           <Property Name="FECHAALTA" Type="DateTime" Nullable="false" />
           <Property Name="FECHAMODIFICACION" Type="DateTime" Nullable="false" />
           <Property Name="ROLESId" Type="Int32" Nullable="false" />
           <Property Name="DIRECCION" Type="String" FixedLength="false" MaxLength="125" Nullable="true" />
+          <Property Name="TELEFONO" Type="String" Nullable="false" FixedLength="false" MaxLength="10" />
+          <Property Name="CORREO" Type="String" Nullable="false" FixedLength="false" MaxLength="125" />
         </EntityType>
         <EntityType Name="ROLES">
           <Key>
@@ -68,15 +194,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FOLIO" Type="String" Nullable="false" FixedLength="true" MaxLength="9" />
           <Property Name="NOMBRES" Type="String" Nullable="false" MaxLength="35" FixedLength="false" />
-          <Property Name="APATERNO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
-          <Property Name="AMATERNO" Type="String" Nullable="false" MaxLength="35" FixedLength="false" />
+          <Property Name="APELLIDOS" Type="String" Nullable="false" FixedLength="false" MaxLength="70" />
           <Property Name="DOMICILIO" Type="String" Nullable="false" FixedLength="false" MaxLength="125" />
           <Property Name="TELEFONO" Type="String" Nullable="false" FixedLength="true" MaxLength="10" />
           <Property Name="EMAIL" Type="String" FixedLength="false" MaxLength="75" Nullable="true" />
           <Property Name="NOTOMAS" Type="Int32" Nullable="false" />
           <Property Name="FECHAALTA" Type="DateTime" Nullable="false" />
           <Property Name="FECHAMODIFICACION" Type="DateTime" Nullable="false" />
+          <Property Name="ENCARGADOSId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PAGOS">
           <Key>
@@ -89,6 +216,8 @@
           <Property Name="IMPORTE" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="USUARIOSId" Type="Int32" Nullable="false" />
           <Property Name="ENCARGADOSId" Type="Int32" Nullable="false" />
+          <Property Name="PERIODO" Type="String" Nullable="false" FixedLength="false" MaxLength="35" />
+          <Property Name="RETARDO" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="USUARIOSPAGOS">
           <End Type="dbh2controlModel.USUARIOS" Role="USUARIOS" Multiplicity="1" />
@@ -114,14 +243,83 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="ENCARGADOSUSUARIOS">
+          <End Type="dbh2controlModel.ENCARGADOS" Role="ENCARGADOS" Multiplicity="1" />
+          <End Type="dbh2controlModel.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENCARGADOS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ENCARGADOSId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbh2controlModelStoreContainer" CdmEntityContainer="dbh2controlEntities" />
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbh2controlModelStoreContainer" CdmEntityContainer="dbh2controlEntities">
+    <EntitySetMapping Name="ENCARGADOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbh2controlModel.ENCARGADOS)">
+        <MappingFragment StoreEntitySet="ENCARGADOSSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="FECHAALTA" ColumnName="FECHAALTA" />
+          <ScalarProperty Name="FECHAMODIFICACION" ColumnName="FECHAMODIFICACION" />
+          <ScalarProperty Name="ROLESId" ColumnName="ROLESId" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbh2controlModel.ROLES)">
+        <MappingFragment StoreEntitySet="ROLESSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbh2controlModel.USUARIOS)">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FOLIO" ColumnName="FOLIO" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOTOMAS" ColumnName="NOTOMAS" />
+          <ScalarProperty Name="FECHAALTA" ColumnName="FECHAALTA" />
+          <ScalarProperty Name="FECHAMODIFICACION" ColumnName="FECHAMODIFICACION" />
+          <ScalarProperty Name="ENCARGADOSId" ColumnName="ENCARGADOSId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbh2controlModel.PAGOS)">
+        <MappingFragment StoreEntitySet="PAGOS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FOLIO" ColumnName="FOLIO" />
+          <ScalarProperty Name="TARIFA" ColumnName="TARIFA" />
+          <ScalarProperty Name="FECHAPAGO" ColumnName="FECHAPAGO" />
+          <ScalarProperty Name="IMPORTE" ColumnName="IMPORTE" />
+          <ScalarProperty Name="USUARIOSId" ColumnName="USUARIOSId" />
+          <ScalarProperty Name="ENCARGADOSId" ColumnName="ENCARGADOSId" />
+          <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+          <ScalarProperty Name="RETARDO" ColumnName="RETARDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -135,7 +333,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

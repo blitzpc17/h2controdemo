@@ -9,7 +9,7 @@ namespace CapaLogica
     interface ICRUD<TIPO>
     {
         void Insertar(TIPO obj);
-        void Guardar(TIPO obj);
+        void Guardar();
         void Eliminar(TIPO obj);
         List<TIPO> Listar();
     }
